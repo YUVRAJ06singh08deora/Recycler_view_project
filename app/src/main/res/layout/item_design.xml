@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="#ffffff">
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/image_view"
+           app:cardCornerRadius="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp">
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/imageUser"
+                android:src="@drawable/yuvraj">
+            </ImageView>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/name_id"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/image_view"
+            android:text="Yuvraj"
+            android:textColor="#000000"
+            android:textSize="20sp"></TextView>
+
+        <TextView
+            android:id="@+id/timeTxt"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/name_id"
+            android:text="10:43 Am"
+            android:textColor="#CDC7C7"
+            android:textSize="12sp"></TextView>
+
+        <TextView
+            android:id="@+id/messageTxt"
+            android:layout_width="140dp"
+            android:layout_height="80dp"
+            android:layout_below="@+id/name_id"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/image_view"
+            android:text="Hey There ?"
+            android:textColor="#CDC7C7"
+            android:textSize="13sp"></TextView>
+
+        <TextView
+            android:id="@+id/dividerLine"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@+id/image_view"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-5dp"
+            android:layout_toRightOf="@+id/image_view"
+            android:text="_____________________________________"
+            android:textColor="#CDC7C7">
+
+        </TextView>
+
+
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
