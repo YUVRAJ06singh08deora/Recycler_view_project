@@ -1,8 +1,9 @@
 package com.example.recycler_view_project;
 
 public class ModelClass {
+    private  String textView1;
     private int imageUser;
-    private String textView1;
+
     private String textView2;
     private String textView3;
     private String divider;
@@ -20,7 +21,7 @@ public class ModelClass {
         return imageUser;
     }
 
-    public String getTextView1() {
+    public  String getTextView1() {
         return textView1;
     }
 

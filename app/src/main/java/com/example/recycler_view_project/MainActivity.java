@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SelectListner{
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
     List<ModelClass> userList;
@@ -20,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initCategoryActivity();
-      //  initData();
-        //initRecyclerView();
+      // initCategoryActivity();
+        initData();
+        initRecyclerView();
 
 
 
@@ -53,11 +54,16 @@ public class MainActivity extends AppCompatActivity {
         layoutManager=new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        adapter=new Adapter(userList);
+        adapter=new Adapter (userList,this);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
 
+    @Override
+    public void onItemClicked(ModelClass modelClass) {
+        Intent intent=new Intent(getApplicationContext(),CategoryActivity.class);
+        startActivity(intent);
+    }
 }
 

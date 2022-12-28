@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -14,9 +15,10 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
 
     private List<ModelClass> userList;
-
-    public Adapter(List<ModelClass> userList) {
+    private SelectListner listner;
+    public Adapter(List<ModelClass> userList,SelectListner listner) {
         this.userList = userList;
+        this.listner=listner;
     }
 
     @NonNull
@@ -35,6 +37,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
         String line = userList.get(position).getDivider();
 
         holder.setData(resource, name, msg, time, line);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listner.onItemClicked(userList.get(position));
+            }
+        });
     }
     @Override
     public int getItemCount() {
@@ -49,7 +57,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
         private TextView textView2;
         private TextView textView3;
         private TextView divider;
-
+     private CardView cardView;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -58,6 +66,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.viewHolder> {
             textView2=itemView.findViewById(R.id.timeTxt);
             textView3=itemView.findViewById(R.id.messageTxt);
             divider=itemView.findViewById(R.id.dividerLine);
+            cardView=itemView.findViewById(R.id.image_view);
 
         }
 
